@@ -6,8 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
+           - image: circleci/android:api-26-alpha
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,14 +18,7 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
-      CACHE_DIR: /home/ubuntu/cache
-      ANDROID_HOME: /home/ubuntu/cache/android-sdk-linux
-      GRADLE_HOME: /home/ubuntu/cache/gradle-3.3
-      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2G -XX:MaxPermSize=1G"'
-      JAVA_OPTIONS: "-Xms512m -Xmx1024m"
-
-    java:
-        version: oraclejdk8
+      TERM: dumb
 
     steps:
       - checkout
