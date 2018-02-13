@@ -19,10 +19,15 @@ jobs:
     environment:
       # Customize the JVM maximum heap limit
       JVM_OPTS: -Xmx3200m
-      TERM: dumb
-      ANDROID_HOME: /usr/local/android-sdk-linux
-      ANDROID_BUILD_TOOLS: 26.0.1
-    
+      CACHE_DIR: /home/ubuntu/cache
+      ANDROID_HOME: /home/ubuntu/cache/android-sdk-linux
+      GRADLE_HOME: /home/ubuntu/cache/gradle-3.3
+      GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2G -XX:MaxPermSize=1G"'
+      JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+
+    java:
+        version: oraclejdk8
+
     steps:
       - checkout
 
